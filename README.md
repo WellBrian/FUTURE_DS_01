@@ -1,99 +1,186 @@
-# FUTURE_DS_01
+# 🛒 Superstore Sales & Profit Dashboard
 
-# 📊 Business Sales Dashboard – E-commerce Sales Analysis
+## 📌 Overview
 
-An interactive and insightful **Business Sales Dashboard** built using real-world e-commerce data. This project simulates an internship-style analytics task and demonstrates how data analysts transform raw sales data into meaningful business insights using **Power BI** and **Excel**.
+The **Superstore Dashboard** is an interactive analytics solution built to provide a comprehensive view of sales performance, profitability, customer behavior, and operational efficiency across regions, categories, segments, and time.
 
-## 🔍 **Project Overview**
+It leverages transactional order data, return records, and regional management information to support **data-driven business decisions**.
 
-The goal of this project is to help business owners and decision-makers understand:
+---
 
-* ⭐ Which products generate the highest sales
-* 📆 When sales peak throughout the year
-* 🏷️ Which categories, regions, or customer segments contribute most to revenue
-* 📦 How customer purchasing behavior changes over time
+## 🎯 Objectives
 
-This dashboard allows users to explore trends, compare performance across categories, and make data-driven decisions.
+The dashboard is designed to:
 
-## ✅ **Project Tasks**
+* Monitor **overall sales and profit performance**
+* Track **return rates and customer activity**
+* Identify **top-performing and underperforming products, categories, and regions**
+* Analyze the **impact of discounts on profitability**
+* Support **regional and managerial performance evaluation**
 
-### **1. Data Cleaning**
+---
 
-* Removed duplicates and missing values
-* Standardized column formats (dates, currency, text)
-* Organized raw data from CSV/Excel into a structured data model
+## 📊 Key KPIs
 
-### **2. Data Analysis**
+Displayed at the top of the dashboard:
 
-* Monthly and yearly sales trends
-* Category-level and product-level performance
-* Revenue contribution by region / customer segment
-* Identification of peak sales periods
+* **Return Rate (%)** – Proportion of returned orders
+* **Total Customers** – Unique customers
+* **Region Count** – Number of active regions
+* **Total Sales ($)** – Overall revenue generated
+* **Total Profits ($)** – Net profit after discounts
+* **Unique Orders** – Distinct order count
 
-### **3. Dashboard Development**
+---
 
-Created a professional Power BI dashboard featuring:
+## 🗂 Data Sources & Schema
 
-* Line charts for time series trends
-* Bar/column charts for product and category performance
-* Cards for KPIs (Total Revenue, Total Orders, Avg. Order Value)
-* Slicers for dynamic filtering (Year, Category, Region, Customer Type)
+### 1️⃣ Orders Table
 
-### **4. Insights & Recommendations**
+Contains transactional-level sales data.
 
-Insights are summarized as if presenting to a business client to inform marketing, inventory, and pricing strategies.
+**Columns:**
 
-## 🎯 **Skills Gained**
+* Row ID
+* Order ID
+* Order Date
+* Ship Date
+* Ship Mode
+* Customer ID
+* Customer Name
+* Segment (Consumer, Corporate, Home Office)
+* Country, City, State, Postal Code, Region
+* Product ID
+* Category (Technology, Furniture, Office Supplies)
+* Sub-Category
+* Product Name
+* Sales
+* Quantity
+* Discount
+* Profit
 
-* 🧹 **Data Cleaning & Transformation**
-* 📆 **Time Series Trend Analysis**
-* 📊 **DAX (Data Analysis Expressions)**
-* 🧠 **Business Intelligence Storytelling**
-* 📥 **Importing and Modeling Excel/CSV Data**
-* 🛠️ **Power BI Reporting**
+---
 
-## 🛠️ **Tools Used**
+### 2️⃣ Returns Table
 
-* **Power BI Desktop** – Main tool for dashboard creation (Free download)
-* **Microsoft Excel** – Data exploration, cleaning & formatting
-* **Optional: SQL** – For advanced preprocessing or querying the dataset
+Tracks returned orders.
 
-## 📂 **Project Structure**
+**Columns:**
 
-```
-├── data/
-│   ├── raw_sales_data.xlsx
-│   └── cleaned_sales_data.csv
-│
-├── dashboard/
-│   └── E-commerce_Sales_Dashboard.pbix
-│
-├── reports/
-│   └── Sales_Insights_And_Recommendations.pdf
-│
-└── README.md
-```
+* Returned (Yes/No)
+* Order ID
 
-## 🚀 **How to Use**
+**Usage:**
 
-1. Download or clone the repository
-2. Open **Power BI Desktop**
-3. Load the `.pbix` file from the `dashboard/` folder
-4. Interact with filters and visuals to explore insights
+* Used to calculate **Return Rate**
+* Linked to the Orders table via `Order ID`
 
-## 📈 **Future Improvements**
+---
 
-* Integrate predictive models (sales forecasting)
-* Add customer segmentation using RFM analysis
-* Automate refresh using Power BI Service
-* Add more KPIs (Profit Margin, Returning Customer Rate)
+### 3️⃣ People Table
 
-## 🤝 **Contributions**
+Maps regional responsibility.
 
-Contributions, suggestions, and improvements are welcome.
-Feel free to open an issue or submit a pull request.
+**Columns:**
 
-## **License**
-MIT
+* Person (Regional Manager)
+* Region
 
+**Usage:**
 
+* Enables **sales and profit analysis by regional managers**
+
+---
+
+## 📈 Dashboard Visuals & Insights
+
+### 🔹 Sales & Profit by Person
+
+* Compares **Total Sales vs Total Profits** per regional manager
+* Highlights managerial performance and regional contribution
+
+### 🔹 Monthly Sales & Profit Trends
+
+* Time-series analysis showing **seasonality and growth patterns**
+* Helps identify peak and low-performing months
+
+### 🔹 Sales by Category
+
+* Revenue contribution from Technology, Furniture, and Office Supplies
+
+### 🔹 Profit by Category
+
+* Reveals which categories generate the **highest margins**
+
+### 🔹 Sales & Profit by Segment
+
+* Compares Consumer, Corporate, and Home Office segments
+* Identifies the most profitable customer segment
+
+### 🔹 Ship Mode Distribution
+
+* Order volume by shipping method:
+
+  * Standard Class
+  * Second Class
+  * First Class
+  * Same Day
+
+### 🔹 Discount vs Profit Analysis
+
+* Scatter plot showing how **discount levels impact profitability**
+* Highlights profit erosion at higher discounts
+
+### 🔹 Profit by Product Name
+
+* Identifies **top and bottom-performing products**
+* Supports product-level optimization decisions
+
+---
+
+## 🎛 Filters & Interactivity
+
+* **Region Selector:** Central, East, South, West
+* **Year Range Slider:** Enables time-based analysis
+* Cross-filtering across all visuals for deep exploration
+
+---
+
+## 💡 Key Business Questions Answered
+
+* Which regions and managers drive the most profit?
+* How do discounts affect overall profitability?
+* What products and categories should be prioritized or discontinued?
+* Which shipping modes are most commonly used?
+* How do sales and profits vary by customer segment?
+
+---
+
+## 🛠 Tools & Technologies
+
+* **Power BI** – Data modeling, DAX calculations, and visualization
+* **Star Schema Data Model** – Orders as fact table, Returns & People as dimensions
+
+---
+
+## 🚀 Use Cases
+
+* Executive performance reporting
+* Sales and operations planning
+* Discount strategy optimization
+* Product and category performance analysis
+* Regional management evaluation
+
+---
+
+## 📎 Notes
+
+* All monetary values are displayed in USD
+* Profit figures account for applied discounts
+* Dashboard supports drill-down and cross-filtering for deeper insights
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
